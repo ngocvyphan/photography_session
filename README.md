@@ -1,7 +1,7 @@
 # Project: Photography Session Management System  #
 
 ---
-## Development Team ##
+Development Team
 Business Client:  Sherri Ashton
 <br/>
 Lead Developer:  Vy Phan
@@ -12,7 +12,7 @@ Quality Control:  Nguyen Nguyen
 The project: Photography Session Management System belongs to Sherri.
 <br/>
 ---
-## Description ##
+Description
 The Photography Session Management System is designed to help photographers easily manage their client bookings and session details. It lets photographers record important information about each session, such as the client's name, session type (e.g., portrait, wedding, or event), and the session date and time. Additionally, photographers can set their hourly rate and the number of hours for each session, with the system automatically calculating the total cost.
 <br/>
 <br/>
@@ -22,12 +22,13 @@ This system replaces traditional methods like handwritten bookings or basic spre
 The system also automatically calculates the session's total cost by multiplying the hourly rate by the number of hours booked. This ensures clear and transparent pricing for both the photographer and the client. By simplifying the management of multiple sessions, this system enhances efficiency, reduces errors.
 
 ---
-## Color ##
+Color
 Main Color: #808080 (grey) </br>
 Secondary Color: #000000 (black) </br>
 Accent Color: #008081 (dark cyan) </br>
 ---
 ## Required Fields ##
+
 This will be a list of fields and their datatype (class design format). There are expected to be a minimum of six fields.<br>
 id int Unique id for each row / primary key <br/>
 clientName String Person's name <br/>
@@ -42,6 +43,7 @@ addedExtraEditing boolean if the client wants to add extra editing or not (extra
 addedExtraPrints boolean if the client wants to add extra prints (extra $3/each) </br>
 numberOfExtraPrints int The number of extra prints the client wants to add </br>
 cost Double Cost (see calculation) </br>
+
 ---
 ## Calculation ##
 **Available Photography Packages:** </br>
