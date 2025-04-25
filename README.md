@@ -30,6 +30,7 @@ The system also automatically calculates the session's total cost by multiplying
 Main Color: #808080 (grey) </br>
 Secondary Color: #000000 (black) </br>
 Accent Color: #008081 (dark cyan) </br>
+
 ---
 ## Required Fields ##
 
@@ -165,3 +166,39 @@ no
 Report 1: Allow users to select the date of booking the photography session and display the photography session booking of that booking date
 </br>
 Report 2: Allow users to select a lower limit cost and upper limit cost and display any photography session in that cost range
+
+---
+## Sprint 1 ##
+
+- Ensure the project is public
+- Can add team members to the project
+- Send a link to your repo to the instructor, BA, and PM
+- Ensure the project has issue tracking
+--> Jira issues needs to be used this year.
+
+## Sprint 2 ##
+
+This sprint will deal with completing the report requirement of the project and involves working with JDBC in your projects. In your project team, there will be some collaboration needed to have the report requirements specified and to test the report. The report requirements are to be specified in the Bitbucket readme file. The coding is to be completed individually. The class example project will provide an example of each of the requirements for this sprint. Note that each team member will have their respective issues to complete separately from the other teammates' issues. JDBC The reports are to be implemented using DAO classes with JDBC (rather than Spring Data JPA). The reports must allow the user to enter the criteria for the report on an input form and then be taken to a report results view.
+File I/O In addition to displaying the report results to the screen, the web application should save the report to a file. The file should be saved in "c:\cis2232\" folder and be named based on the type of report and the current date. An example of a filename could be "TicketOrdersForCustomer202105111537.txt".
+
+## Sprint 3 ##
+
+- List functionality is implemented.
+- Add functionality is implemented.
+- Delete functionality is implemented.
+- Update functionality is implemented.
+- Validation is implemented for add and update functionality (using Spring Data JPA)
+
+## Sprint 4 ##
+
+This sprint will require implementing a basic REST API for your project.
+- Jersey setup in the projects.
+- Service to get all.
+- Service to get one.
+- Service to delete.
+- Service to add (post).
+- Return an appropriate http response code if the post service includes invalid data values.
+
+## Sprint 5 ##
+
+The project was completed in small sprints. This final sprint will be used to ensure that all the pieces are working. Finishing touches. Ensure that the main business Controller files are coded to meet CIS programming standards (including Javadocs, naming, and formatting). A demonstration in class or by narrated screen record video is expected by the end of the semester.
