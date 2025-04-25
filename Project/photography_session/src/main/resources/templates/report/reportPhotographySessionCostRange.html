@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/head :: head">
+        <title id="pageTitle">Report</title>
+    </head>
+    <body>
+        <style scoped="scoped">input:not(.hidden){
+                display:inline-block;
+                float:right
+            }
+            .cd{
+                color:#F00!important;
+                font-weight:bold;
+                margin-bottom:-48px
+            }
+            label{
+                margin-right:8px
+            }</style>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+        <div class="container has-text-centered">
+            <h2 class="title is-2" th:text="#{label.report.photographysession.costrange}">_</h2>
+            <form th:action="@{/report/photographysession/costrange/submit}" method="post" class="wbb" style="display:inline-block;text-align:left!important">
+                <label>Cost lower limit: </label>
+                <input type="number" th:field="${reportInput.costLowerLimit}"></input>
+                <br></br>
+                <label>Cost upper limit: </label>
+                <input type="number" th:field="${reportInput.costUpperLimit}"></input>
+                <br></br>
+                <button style="display:block;margin-top:24px!important" class="centered">Submit</button>
+
+
+            </form>
+            <br></br>
+
+            <!--https://stackoverflow.com/a/33106495-->
+            <!--https://stackoverflow.com/questions/51301074/how-to-check-null-and-empty-condition-using-thymeleaf-in-one-single-operation-->
+
+            <!--https://stackoverflow.com/questions/20789441/how-to-show-localization-messages-with-parameters-in-spring-3-thymeleaf-->
+            <p th:if="${not #strings.isEmpty(message)}" th:text="#{error.message.no.data.found.cost.range}">test</p>
+
+            <table class="wbb centered" th:if="${not #lists.isEmpty(reportInput.photographySessions)}" style="padding:0!important;display:inline-block!important">
+                <tr><!--All style overrides still needed. Not a great way to force spacing between elements but works.-->
+                    <th>ID</th>
+                    <th class="a"></th>
+                    <th>Name</th>
+                    <th class="a"></th>
+                    <th>Package #</th>
+                    <th class="a"></th>
+                    <th>date</th>
+                    <th class="a"></th>
+                    <th>Notes</th>
+                    <th class="a"></th>
+                    <th># hours</th>
+                    <th class="a"></th>
+                    <th>hourlyRate</th>
+                    <th class="a"></th>
+                    <th>addPhotoAlbum</th>
+                    <th class="a"></th>
+                    <th>addVideo</th>
+                    <th class="a"></th>
+                    <th>addEditing</th>
+                    <th class="a"></th>
+                    <th>addPrints</th>
+                    <th class="a"></th>
+                    <th># prints</th>
+                    <th class="a"></th>
+                    <th>cost</th>
+                    <th class="a"></th>
+                </tr>
+                <tr th:each="current,iterStat : ${reportInput.photographySessions}">
+                    <td th:text="${current.id}"></td>
+                    <td></td>
+                    <td th:text="${current.clientName}"></td>
+                    <td></td>
+                    <td th:text="${current.packageNumber}"></td>
+                    <td></td>
+                    <td th:text="${current.date}"></td>
+                    <td></td>
+                    <td th:text="${current.sessionNotes}"></td>
+                    <td></td>
+                    <td th:text="${current.numberOfHoursBooked}"></td>
+                    <td></td>
+                    <td th:text="${current.hourlyRate}"></td>
+                    <td></td>
+                    <td th:text="${current.addedPhotoAlbum}"></td>
+                    <td></td>
+                    <td th:text="${current.addedVideo}"></td>
+                    <td></td>
+                    <td th:text="${current.addedExtraEditing}"></td>
+                    <td></td>
+                    <td th:text="${current.addedExtraPrints}"></td>
+                    <td></td>
+                    <td th:text="${current.numberOfExtraPrints}"></td>
+                    <td></td>
+                    <td th:text="${#numbers.formatCurrency(current.cost)}"></td>
+                    <td></td>
+                </tr><!--Ignore this error, as there will only be one td (the if above).-->
+            </table>
+
+        </div>
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

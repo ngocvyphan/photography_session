@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/head :: head">
+        <title id="pageTitle"  th:text="#{label.add.edit}">Label Add/Edit</title>
+    </head>
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+        <div class="container has-text-centered">
+            <h2 class="title is-2" th:if= "${photographySession.id != null}" th:text="#{label.edit.order}">label Edit</h2>
+            <h2 class="title is-2" th:if= "${photographySession.id == null}" th:text="#{label.add.order}">label Add</h2>
+            <form th:action="@{/photographysession/submit}" method="post" class="wbb" style="display:inline-block;text-align:left!important">
+                <input class="hidden" hidden="hidden" type="text" readonly="readonly" th:field="${photographySession.id}"></input>
+                <input class="hidden" hidden="hidden" type="text" readonly="readonly" th:field="${photographySession.cost}"></input>
+<!--                <input class="hidden" hidden="hidden" type="text" readonly="readonly" th:field="${ticketOrder.dateOfOrder}"></input>-->
+
+                <p><label>Name: </label>                
+                    <input type="text" th:field="${photographySession.clientName}"></input>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.clientName}')}" th:errors="${photographySession.clientName}"></p>
+<!--                <p class="cd" th:if="${errorName!=null and !errorName.empty}" th:text="${errorName}"></p>-->
+
+<!--                <p>-->
+<!--                    <label>Package: </label>-->
+<!--                    <input type="number" th:field="${photographySession.packageNumber}"></input>-->
+<!--                </p>-->
+<!--                <p class="cd" th:if="${#fields.hasErrors('${photographySession.packageNumber}')}" th:errors="${photographySession.packageNumber}"></p>-->
+<!--                <p class="cd" th:if="${errorHollpass!=null and !errorHollpass.empty}" th:text="${errorHollpass}"></p>-->
+
+                <p><label for="packageType" th:text="#{label.package.type}">Package Type </label>
+                    <select id="packageType" th:field="${photographySession.packageNumber}">
+                        <option value="0">select option</option>
+                        <option th:each="option : ${session.packageTypes}" th:value="${option.codeValueSequence}" th:text="${option.englishDescription}"></option>                    </select>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.packageNumber}')}" th:errors="${photographySession.packageNumber}"></p>
+
+
+                <p><label>Date of booking: </label>
+                    <input type="date" th:min="${session.currentDate}"  th:field="${photographySession.date}"></input>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.date}')}" th:errors="${photographySession.date}"></p>
+                <!--            Show any business validation issues-->
+                <ul th:each="businessValidationError : ${businessValidationErrorsBookingDate}">
+                    <li class="cd" th:text="${businessValidationError}"></li>
+                </ul>
+
+                <p><label>Session Notes: </label>
+                    <input type="text" th:field="${photographySession.sessionNotes}"></input>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.sessionNotes}')}" th:errors="${photographySession.sessionNotes}"></p>
+
+                <p><label>Number of Hours Booked: </label>
+                    <input type="number" th:field="${photographySession.numberOfHoursBooked}"></input>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.numberOfHoursBooked}')}" th:errors="${photographySession.numberOfHoursBooked}"></p>
+
+                <p><label>Hourly Rate: </label>
+                    <input type="number" th:field="${photographySession.hourlyRate}"></input>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.hourlyRate}')}" th:errors="${photographySession.hourlyRate}"></p>
+
+                <p><label>Adding photo album? (true/false) </label>
+                <select th:field="${photographySession.addedPhotoAlbum}" name="addedPhotoAlbum">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.addedPhotoAlbum}')}" th:errors="${photographySession.addedPhotoAlbum}"></p>
+
+                <p><label>Adding video? (true/false) </label>
+                <select th:field="${photographySession.addedVideo}" name="addedVideo">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.addedVideo}')}" th:errors="${photographySession.addedVideo}"></p>
+
+                <p>
+                <label>Adding extra editing? (true/false) </label>
+                <select th:field="${photographySession.addedExtraEditing}" name="addedExtraEditing">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.addedExtraEditing}')}" th:errors="${photographySession.addedExtraEditing}"></p>
+
+                <p>
+                <label>Adding extra prints? (true/false) </label>
+                <select th:field="${photographySession.addedExtraPrints}" name="addedPhotoAlbum">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.addedExtraPrints}')}" th:errors="${photographySession.addedExtraPrints}"></p>
+
+                <p><label>Numbers of extra prints: </label>
+                    <input type="number" th:field="${photographySession.numberOfExtraPrints}"></input>
+                </p>
+                <p class="cd" th:if="${#fields.hasErrors('${photographySession.numberOfExtraPrints}')}" th:errors="${photographySession.numberOfExtraPrints}"></p>
+                <button style="display:block;margin-top:24px!important" class="centered" th:text="#{label.submit}">label Submit</button>
+            </form>
+        </div>
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>
