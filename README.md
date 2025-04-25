@@ -1,7 +1,7 @@
 # Project: Photography Session Management System  #
 
 ---
-Development Team
+## Development Team ##
 
 Business Client:  Sherri Ashton
 <br/>
@@ -12,8 +12,10 @@ Quality Control:  Nguyen Nguyen
 <br/>
 The project: Photography Session Management System belongs to Sherri.
 <br/>
+
 ---
-Description
+## Description ##
+
 The Photography Session Management System is designed to help photographers easily manage their client bookings and session details. It lets photographers record important information about each session, such as the client's name, session type (e.g., portrait, wedding, or event), and the session date and time. Additionally, photographers can set their hourly rate and the number of hours for each session, with the system automatically calculating the total cost.
 <br/>
 <br/>
@@ -23,7 +25,7 @@ This system replaces traditional methods like handwritten bookings or basic spre
 The system also automatically calculates the session's total cost by multiplying the hourly rate by the number of hours booked. This ensures clear and transparent pricing for both the photographer and the client. By simplifying the management of multiple sessions, this system enhances efficiency, reduces errors.
 
 ---
-Color
+## Color ##
 
 Main Color: #808080 (grey) </br>
 Secondary Color: #000000 (black) </br>
