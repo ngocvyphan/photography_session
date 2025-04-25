@@ -2,6 +2,7 @@
 
 ---
 Development Team
+
 Business Client:  Sherri Ashton
 <br/>
 Lead Developer:  Vy Phan
@@ -23,6 +24,7 @@ The system also automatically calculates the session's total cost by multiplying
 
 ---
 Color
+
 Main Color: #808080 (grey) </br>
 Secondary Color: #000000 (black) </br>
 Accent Color: #008081 (dark cyan) </br>
